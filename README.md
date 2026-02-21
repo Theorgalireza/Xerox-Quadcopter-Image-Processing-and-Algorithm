@@ -8,26 +8,29 @@ A practical computer vision and control project for detecting rectangular window
 
 This project captures frames from the Tello camera, detects window-like rectangular shapes using HSV color segmentation and contour analysis, tracks the target robustly with smoothing and a Kalman filter, and commands the drone to align and approach the target automatically.
 
-**Core capabilities:**
+The system integrates:
+- **Computer Vision (OpenCV)**
+- **Multi-stage HSV color segmentation**
+- **Kalman filtering for robust tracking**
+- **Multiple PID controllers** for stable flight control
+- **Autonomous search behavior** when the target is lost
 
-- Real-time window detection
-- Stable target tracking
-- Autonomous yaw / roll / throttle / forward control
-- Search behavior when target is lost
-- Visual debugging overlays
-- Live parameter tuning via trackbars
+This project is designed for real-time operation using the onboard Tello camera and is fully tunable via GUI sliders.
 
 ---
 
-## Features
+##  Key Capabilities
+- Real-time **window detection** using contour geometry and color filtering
+- **4-DOF drone control**:
+  - **Yaw** (horizontal alignment)
+  - **Throttle** (vertical alignment)
+  - **Roll** (window plane leveling)
+  - **Pitch (forward/backward)** (distance control using contour area)
+- **Kalman Filter–based tracking** for noise reduction and prediction
+- **Autonomous search mode** when the target is not visible
+- Live **HSV tuning interface**
+- Safe termination and emergency land
 
-- Multi-range HSV masking (3 adjustable color ranges)
-- Morphological filtering for noise reduction
-- Polygon approximation for rectangle detection
-- Kalman filter for smoothing & prediction
-- PID controllers for all movement axes
-- Intelligent search pattern when detection fails
-- Real-time GUI controls for tuning parameters
-- Safety hover when alignment is achieved
+---
 
 
